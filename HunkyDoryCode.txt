@@ -1,0 +1,33 @@
+
+Nombre del equipo:  HunkyDoryCode
+Enlace de GitHub:  https://github.com/HunkyDoryCode/Compannia_Metalmecanica.git
+
+Administrador configuración
+CARLOS HUMBERTO MONTENEGRO DIAZ
+1016004051
+Carmondi5418@gmail.com
+25 - 26
+
+Diseñador de software
+CAMILA ESTEFANY MIKAN
+1073674538
+camilitamikan@gmail.com
+25 - 26
+
+Tester
+ANGIE PAOLA URUETA TORDECILLA
+1063167507
+angieurueta10@gmail.com
+25 - 26
+
+Diseñador BD
+JORGE ESTEBAN CASTAÑO GIRALDO
+1036924935
+c.pycasas@gmail.com
+25 - 26
+
+Líder del equipo, Scrum master
+JULIAN ALBERTO ACOSTA ALVAREZ
+98396268
+julian.acosta.76@gmail.com
+27 - 28
