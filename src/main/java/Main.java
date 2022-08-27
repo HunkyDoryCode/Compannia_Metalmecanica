@@ -31,4 +31,5 @@ public class Main {
         empleado.setNombre(name);
         System.out.println(empleado);
     }
+
 }
