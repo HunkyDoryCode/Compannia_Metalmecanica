@@ -1,62 +1,48 @@
-import java.util.Scanner;
+public class Empleado {
+    private String nombre, correo, empresaEmpleado, rol;
+    //constructor
 
-class Empleado {
-    private String Nombres, Apellidos, id, cargo;
-    private int edad;
-
-    Empleado(String Nombres, String Apellidos, String id, String cargo, int edad){
-        setNombres(Nombres);
-        setApellidos(Apellidos);
-        setId(id);
-        setCargo(cargo);
-        setEdad(edad);
+    public Empleado(String nombre, String correo, String empresaEmpleado, String rol) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.empresaEmpleado = empresaEmpleado;
+        this.rol = rol;
     }
 
-    /* Getters*/
-    public String getNombres() {
-        return Nombres;
+    //GETTERS AND SETTERS
+
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getCorreo() {
+        return correo;
+    }
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    public String getEmpresaEmpleado() {
+        return empresaEmpleado;
+    }
+    public void setEmpresaEmpleado(String empresaEmpleado) {
+        this.empresaEmpleado = empresaEmpleado;
+    }
+    public String getRol() {
+        return rol;
+    }
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
-    public String getApellidos() {
-        return Apellidos;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    /* Setters */
-
-    public void setNombres(String nombres) {
-        this.Nombres = nombres;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.Apellidos = apellidos;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public void mostrarEmpleado(){
-        System.out.println("\nNombres: " + getNombres() + "\nApellidos: " + getApellidos() + "\nId: " + getId()+
-                "\nCargo: " + getCargo() + "\nEdad: " + getEdad() );
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", empresaEmpleado='" + empresaEmpleado + '\'' +
+                ", rol='" + rol + '\'' +
+                '}';
     }
 }
