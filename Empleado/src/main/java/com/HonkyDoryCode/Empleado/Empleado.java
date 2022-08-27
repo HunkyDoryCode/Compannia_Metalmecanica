@@ -1,55 +1,48 @@
-package com.HonkyDoryCode.Empleado;
-
 public class Empleado {
-    import java.util.Scanner;
+    private String nombre, correo, empresaEmpleado, rol;
+    //constructor
 
-    class Empleado {
-        private String Nombres;
-        private String Correo;
-        private String Empresa;
-        private String cargo;
-
-        //Constructor
-
-        public Empleado(String nombres, String correo, String empresa, String cargo) {
-            Nombres = nombres;
-            Correo = correo;
-            Empresa = empresa;
-            this.cargo = cargo;
-        }
-
+    public Empleado(String nombre, String correo, String empresaEmpleado, String rol) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.empresaEmpleado = empresaEmpleado;
+        this.rol = rol;
     }
 
-    //Getters and Setters
-    public String getNombres() {
-        return Nombres;
-    }
+    //GETTERS AND SETTERS
 
-    public void setNombres(String nombres) {
-        Nombres = nombres;
+    public String getNombre() {
+        return nombre;
     }
-
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
     public String getCorreo() {
-        return Correo;
+        return correo;
     }
-
     public void setCorreo(String correo) {
-        Correo = correo;
+        this.correo = correo;
+    }
+    public String getEmpresaEmpleado() {
+        return empresaEmpleado;
+    }
+    public void setEmpresaEmpleado(String empresaEmpleado) {
+        this.empresaEmpleado = empresaEmpleado;
+    }
+    public String getRol() {
+        return rol;
+    }
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
-    public String getEmpresa() {
-        return Empresa;
-    }
-
-    public void setEmpresa(String empresa) {
-        Empresa = empresa;
-    }
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", empresaEmpleado='" + empresaEmpleado + '\'' +
+                ", rol='" + rol + '\'' +
+                '}';
     }
 }
