@@ -1,13 +1,18 @@
 public class Empleado {
-    private String nombre, correo, empresaEmpleado, rol;
+    private String nombre;
+    private String correo;
+    private String empresaEmpleado;
+    private String rol;
     //constructor
 
     public Empleado(String nombre, String correo, String empresaEmpleado, String rol) {
-        this.nombre = nombre;
-        this.correo = correo;
-        this.empresaEmpleado = empresaEmpleado;
-        this.rol = rol;
+        this.setNombre(nombre);
+        this.setCorreo(correo);
+        this.setEmpresaEmpleado(empresaEmpleado);
+        this.setRol(rol);
     }
+
+}
 
     //GETTERS AND SETTERS
 
@@ -39,10 +44,10 @@ public class Empleado {
     @Override
     public String toString() {
         return "Empleado{" +
-                "nombre='" + nombre + '\'' +
-                ", correo='" + correo + '\'' +
-                ", empresaEmpleado='" + empresaEmpleado + '\'' +
-                ", rol='" + rol + '\'' +
+                "nombre='" + getNombre() + '\'' +
+                ", correo='" + getCorreo() + '\'' +
+                ", empresaEmpleado='" + getEmpresaEmpleado() + '\'' +
+                ", rol='" + getRol() + '\'' +
                 '}';
     }
 }

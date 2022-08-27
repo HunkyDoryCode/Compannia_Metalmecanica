@@ -3,10 +3,12 @@ public class MovimientoDinero {
     private String concepto;
 
     //constructor
+
     public MovimientoDinero(double monto, String concepto) {
         this.monto = monto;
         this.concepto = concepto;
     }
+
     //setters and getters
     public double getMonto() {
         return monto;
@@ -33,8 +35,8 @@ public class MovimientoDinero {
     @Override
     public String toString() {
         return "MovimientoDinero{" +
-                "monto=" + monto +
-                ", concepto='" + concepto + '\'' +
+                "monto=" + getMonto() +
+                ", concepto='" + getConcepto() + '\'' +
                 '}';
     }
 }

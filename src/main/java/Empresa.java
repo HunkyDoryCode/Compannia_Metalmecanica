@@ -1,6 +1,8 @@
 public class Empresa {
-    private String empresa, direccion;
-    private int telefono, nit;
+    private String empresa;
+    private String direccion;
+    private int telefono;
+    private int nit;
     //constructor
 
     public Empresa(String empresa, String direccion, int telefono, int nit) {
@@ -9,6 +11,7 @@ public class Empresa {
         this.telefono = telefono;
         this.nit = nit;
     }
+
 
     //GETTERS AND SETTERS
 
@@ -47,10 +50,10 @@ public class Empresa {
     @Override
     public String toString() {
         return "Empresa{" +
-                "empresa='" + empresa + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", telefono=" + telefono +
-                ", nit=" + nit +
+                "empresa='" + getEmpresa() + '\'' +
+                ", direccion='" + getDireccion() + '\'' +
+                ", telefono=" + getTelefono() +
+                ", nit=" + getNit() +
                 '}';
     }
 }
