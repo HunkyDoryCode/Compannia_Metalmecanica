@@ -26,6 +26,7 @@ public class Main {
         //Impresion objeto Empresa
         System.out.println(empresa);
 
+
         //Consultar al usuario:
         Scanner entrada = new Scanner(in);
         String name;
@@ -33,6 +34,25 @@ public class Main {
         name = entrada.nextLine();
         empleado.setNombre(name);
         System.out.println(empleado);
+
+        //consulto la movimiento dinero
+
+        Scanner entradaysalida = new Scanner(in);
+        String movement;
+        System.out.println("Registre el monto");
+        movement = entradaysalida.nextLine();
+        movimiento.setConcepto(movement);
+        System.out.println(movimiento);
+
+        //consulto la empresa
+
+        Scanner entidades = new Scanner(in);
+        String bussines;
+        System.out.println("Que entidad es");
+        bussines = entidades.nextLine();
+        empresa.setEmpresa(bussines);
+        System.out.println(bussines);
+        
     }
 
 
@@ -54,14 +74,6 @@ public class Main {
 
 
 
-        //consulto la empresa
-        /*
-        Scanner concepto = new Scanner(in);
-        String moviemiento;
-        System.out.println("Registre el monto");
-        moviemiento = concepto.nextLine();
-        concepto.getConcepto(moviemiento);
-        System.out.println(concepto);
-         */
+
 }
 
