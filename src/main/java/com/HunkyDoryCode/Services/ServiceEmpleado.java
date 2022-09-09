@@ -1,6 +1,7 @@
 package com.HunkyDoryCode.Services;
 
 import com.HunkyDoryCode.Entities.Empleado;
+import com.HunkyDoryCode.Entities.MovimientoDinero;
 
 public class ServiceEmpleado {
     Empleado emp1;
