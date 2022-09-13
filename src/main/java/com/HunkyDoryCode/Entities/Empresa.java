@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
+    private Long Id;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "direccion")
@@ -16,6 +16,7 @@ public class Empresa {
     private int telefono;
     @Column(name = "nit")
     private String nit;
+
     @Transient
     Empleado empleado1;
 

@@ -2,20 +2,44 @@ package com.HunkyDoryCode.Controllers;
 
 import com.HunkyDoryCode.Entities.Empleado;
 import com.HunkyDoryCode.Services.ServiceEmpleado;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class ControlEmpleado {
-    ServiceEmpleado sem1 = new ServiceEmpleado();
-    Empleado emp1;
-    public ControlEmpleado(){
-        this.emp1 = this.sem1.getEmpleado();
+    ServiceEmpleado sem1;
+
+
+    public ControlEmpleado(ServiceEmpleado sem1){
+        this.sem1 = sem1;
 
     }
-    @GetMapping("/empleado")
-    Empleado empleado(){
-        return this.emp1;
+
+
+
+    //GET
+    @GetMapping("/users")
+    public List<Empleado> informacion(){
+        return this.sem1.getInformacion();
+    }
+
+    //POST:
+    @PostMapping("/users")
+    public Empleado crearEmpleado(@RequestBody Empleado emplea){
+        return this.sem1.crearEmpleado(emplea);
+    }
+
+    //POTCH:
+    @PutMapping("/user/{id}")
+    public Empleado actualizarEmpresa(@PathVariable Long id, @RequestBody Empleado emplea){
+        return this.sem1.actualizarEmpleado(id, emplea);
+    }
+
+    //Delete
+    @DeleteMapping("/user/{id}")
+    public Empleado eliminarEmpresa(@PathVariable(value = "id") Long id){
+        return this.sem1.eleminEmpleado(id);
     }
 
 }

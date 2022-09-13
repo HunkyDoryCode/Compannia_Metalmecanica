@@ -2,10 +2,7 @@ package com.HunkyDoryCode.Controllers;
 
 import com.HunkyDoryCode.Entities.Empresa;
 import com.HunkyDoryCode.Services.ServiceEmpresa;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,16 +23,34 @@ public class ControlEmpresa {
 
      */
     ServiceEmpresa se1;
+
     public ControlEmpresa(ServiceEmpresa se1){
         this.se1 = se1;
     }
-    @GetMapping("/empresa")
-    public List<Empresa> empresa(){
-        return this.se1.getrepositorio();
+
+    //GET:
+    @GetMapping("/enterprise")
+    public List<Empresa> information(){
+        return this.se1.getInformation();
     }
-    @PostMapping("/empresa")
+
+    //POST
+    @PostMapping("/enterprise")
     public Empresa crearEmpresa(@RequestBody Empresa emp){
-        return this.se1.crearRegistro(emp);
+        return this.se1.crearEmpresa(emp);
+    }
+
+    //PUT
+    @PutMapping("/enterprises/{Id}")
+    public Empresa actualizardatoEmpresa(@PathVariable(value = "id")Long id, @RequestBody Empresa Emp){
+        return this.se1.actualizarEmpresa(id, Emp);
+    }
+
+    //DELETE:
+
+    @DeleteMapping("/enterprises/{Id}")
+    public Empresa eliminardatoEmpresa(@PathVariable(value = "id")Long id){
+        return this.se1.eliminEmpresa(id);
     }
 
 
