@@ -41,14 +41,14 @@ public class ControlEmpresa {
     }
 
     //PUT
-    @PutMapping("/enterprises/{Id}")
+    @PutMapping("/enterprises/{id}")
     public Empresa actualizardatoEmpresa(@PathVariable(value = "id")Long id, @RequestBody Empresa Emp){
         return this.se1.actualizarEmpresa(id, Emp);
     }
 
     //DELETE:
 
-    @DeleteMapping("/enterprises/{Id}")
+    @DeleteMapping("/enterprises/{id}")
     public Empresa eliminardatoEmpresa(@PathVariable(value = "id")Long id){
         return this.se1.eliminEmpresa(id);
     }
