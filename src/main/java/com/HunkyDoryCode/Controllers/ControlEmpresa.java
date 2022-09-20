@@ -29,6 +29,7 @@ public class ControlEmpresa {
     }
 
     //GET:
+    /*
     @GetMapping("/enterprise")
     public List<Empresa> information(){
         return this.se1.getInformation();
@@ -39,6 +40,8 @@ public class ControlEmpresa {
     public Empresa crearEmpresa(@RequestBody Empresa emp){
         return this.se1.crearEmpresa(emp);
     }
+
+     */
 
     //PUT
     @PutMapping("/enterprises/{id}")
