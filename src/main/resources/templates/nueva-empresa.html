@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Nueva Empresa</title>
+</head>
+<body>
+
+<main>
+    <div class="px-4 py-3 my-2 text-center">
+        <h1 class="displey-5 fw-bold mb-5">Nuevos empleados</h1>
+        <div class="col-lg-5 mx-auto">
+
+            <!--Dentro de la etiqueta formulario, llamo la pagina enterprises del controladorfront y del atributo nuevo de Post controladorEmpresa y con el metodo le ejecuto la accion
+            y crear un objeto -->
+            <form th:action="@{/enterprises}" th:method="post" th:object="${enterprises}" class="d-flex flex-column gap-3 aling-items-center">
+
+                <!--Etiqueta de campos de texto:-->
+                <input th:field="*{nombre}" class="form-control" type="text" placeholder="Nombre Empresa"/>
+                <input th:field="*{direccion}" class="form-control" type="tel" placeholder="Ubicacion"/>
+                <input th:field="*{telefono}" class="form-control" type="tel" placeholder="Phone"/>
+                <input th:field="*{nit}" class="form-control" type="number" placeholder="Runt"/>
+                <!--relacion de la bases de datos del atributo de la clase empleado
+                <input th:field="*{empleado.empresaEmpleadoPertenece}" class="form-control" type="text" placeholder="Rol empleado"/>
+                -->
+                <button class="btn btn-primary btn-sn px-4 gap-3" type="submit">finalizar diligenciamiento datos Empresa del empleado</button>
+                <a href="/enterprises" class="btn btn-outline-secondary btn-sn px-4 gap-3" type="submit">Cancelar</a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

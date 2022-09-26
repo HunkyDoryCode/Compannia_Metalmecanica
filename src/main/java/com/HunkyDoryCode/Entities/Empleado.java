@@ -1,5 +1,7 @@
 package com.HunkyDoryCode.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,8 +18,17 @@ public class Empleado {
     private String empresaEmpleadoPertenece;
     @Column(name ="rolEmpleado")
     private String rolEmpleado;
+
     @Transient
     MovimientoDinero movimiento1;
+
+    //Agregar la relacion de muchos datos en un solo:
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "registroMovimiento", nullable = false)
+    @JsonIgnoreProperties(value = "empleados")
+    private Empleado enterprises;
+
 
     public Empleado() {
     }

@@ -13,6 +13,14 @@ public class MovimientoDinero {
     @Column(name = "conceptoMovimiento")
     private String conceptoMovimiento;
 
+    //Agregar la relacion de muchos datos en un solo:
+    /*
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "registroMovimiento")
+    private Empleado empleado;
+
+     */
+
     public MovimientoDinero() {
     }
 

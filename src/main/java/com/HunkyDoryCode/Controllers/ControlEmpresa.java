@@ -2,28 +2,18 @@ package com.HunkyDoryCode.Controllers;
 
 import com.HunkyDoryCode.Entities.Empresa;
 import com.HunkyDoryCode.Services.ServiceEmpresa;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
 @RestController
 public class ControlEmpresa {
-    /*
-
-    ServiceEmpresa se1 = new ServiceEmpresa();
-    Empresa emp1;
-    public ControlEmpresa(){
-        this.emp1 = this.se1.GetEmpresa();
-    }
-    @GetMapping("/empresa")
-    public Empresa empresa(){
-
-        return this.emp1;
-    }
-
-     */
+    //Atributo de la relacion de ServiceEmpresa:
     ServiceEmpresa se1;
 
+    //Constructor de la relacion de ServiceEmpresa:
     public ControlEmpresa(ServiceEmpresa se1){
         this.se1 = se1;
     }
@@ -35,15 +25,21 @@ public class ControlEmpresa {
         return this.se1.getInformation();
     }
 
-    //POST
-    @PostMapping("/enterprise")
-    public Empresa crearEmpresa(@RequestBody Empresa emp){
-        return this.se1.crearEmpresa(emp);
-    }
 
      */
 
-    //PUT
+    //POST -> Crea
+    //Crea el modelo de la ruta del Frontcontrolador:
+    @PostMapping("/enterprises")
+    public RedirectView crearEmpresa(@ModelAttribute Empresa emp, Model modelEmpr){
+        modelEmpr.addAttribute(emp);
+        this.se1.crearEmpresa(emp);
+        return new RedirectView("/enterprises");
+    }
+
+
+
+    //PATCH:
     @PutMapping("/enterprises/{id}")
     public Empresa actualizardatoEmpresa(@PathVariable(value = "id")Long id, @RequestBody Empresa Emp){
         return this.se1.actualizarEmpresa(id, Emp);

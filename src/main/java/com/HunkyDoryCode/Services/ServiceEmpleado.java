@@ -13,10 +13,12 @@ import java.util.List;
 @Service
 public class ServiceEmpleado {
 
+    //Relacion Repositorio Empleado
     private RepositoryEmpleado repositorioE;
 
+        //Constructor:
         public ServiceEmpleado(RepositoryEmpleado repositorioE){
-        this.repositorioE = repositorioE;
+            this.repositorioE = repositorioE;
     }
 
     public List<Empleado> getInformacion(){

@@ -6,56 +6,68 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <title>EmpresaHunkyDoryCode</title>
+
 </head>
 <body>
 <!--muestre la informacion de los "Empleados" y "MovimientoDinero" en formas de tarjetas "Cards"-->
 
 <main>
-    <div class="px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold mb-4">Empresa</h1>
-        <div class="d-flex justify-content-center gap-3">
 
-            <!--El codigo traido de las tarjetas "Card" Boostrap-->
-            <!--Primera Tarjeta-->
-            <div th:each="enterprises:${enterprises}" class="card" style="width: 18rem;">
-                <img src="imagenes/Empresahunkydorycode.jpeg" class="card-img-top" alt="empresahunkydorycode">
-                <div class="card-body">
-                    <h5 class="card-title"> Movimiento Dinero de una empresa</h5>
-                    <p class="card-text">Descripcion Empresa</p>
-                    <a href="#" class="btn btn-primary">Detalles</a>
-                </div>
-            </div>
-
-
-            <!--
-            Segunda Tarjeta
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Nombre Empresa</h5>
-                    <p class="card-text">Descripcion Roles Empleados</p>
-                    <a href="#" class="btn btn-primary">Detalles</a>
-                </div>
-            </div>
-
-            Tercera Tarjeta
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Nombre Empresa</h5>
-                    <p class="card-text">Descripcion Roles Empleados</p>
-                    <a href="#" class="btn btn-primary">Detalles</a>
-                </div>
-            </div>
-            -->
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="imagenes/Logohunkydorycode.jpg" alt="logohunkydorycode" width="-40" height="80" class="d-inline-block align-text-rigth">
+                Metalmecanica
+            </a>
 
         </div>
+    </nav>
+    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+    <div class="d-grid gap-3">
+        <div class="p-2 bg-light border"><button type="button" class="btn btn-dark">Ingresos y egresos</button></div>
+        <div class="p-2 bg-light border"><button type="button" class="btn btn-dark">Usuarios</button></div>
+        <div class="p-2 bg-light border"><button type="button" class="btn btn-dark">Ingresos</button></div>
+    </div>
+    </div>
+    <!--El codigo traido de las tarjetas "Card" Boostrap-->
+    <!--Primera Tarjeta-->
+    <div class="px-4 py-5 my-2 text-center">
+        <h1 class="display-5 fw-bold mb-4">Empresas</h1>
+        <div class="d-flex justify-content-center gap-3">
+            <div th:each="enterprises:${enterprises}" class="card" style="width: 18rem;">
+                <img src="imagenes/Empresahunkydorycode.jpeg" class="d-block mx-auto my-auto mb-4" alt="User" height="100">
+                <div class="card-body">
+                    <h5 th:text="${enterprises.nombre}"  class="card-title"></h5>
+                    <p  th:text="${enterprises.direccion}"  class="card-text"></p>
+                    <p  th:text="${enterprises.telefono}"  class="card-text"></p>
+                    <p  th:text="${enterprises.nit}"  class="card-text"></p>
+
+                    <!--relacion entidad empleado
+                    <p  th:text="${empleados.enterprises}"  class="card-text"></p>
+                     -->
+
+                    <a href="#" class="btn btn-primary">Detalles</a>
+                </div>
+            </div>
+           </div>
+    </div>
+
+
+    </div>
+    <!--Boton para que nos permita devolvernos a la pagina principal:-->
+    <div class="px-4 py-5 my-5 text-center">
+        <a href="/enterprises/nueva-empresa" type="button" class="btn btn-primary btn-lg px-5 gap-3">Registrar Empresa del empleado</a>
+        <a href="/" type="button" class="btn btn-outline-secundary btn-lg px-5 gap-3">Devolverse al inicio del aplicativo</a>
+    </div>
+
+    <div class="px-4 py-5 my-5 text-center">
+        <a href="/enterprises/nuevo-empleado" type="button" class="btn btn-primary btn-lg px-5 gap-3">Registrar Empleado</a>
+        <a href="/" type="button" class="btn btn-outline-secundary btn-lg px-5 gap-3">Devolverse al inicio del aplicativo</a>
+    </div>
 
     </div>
 
 </main>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 

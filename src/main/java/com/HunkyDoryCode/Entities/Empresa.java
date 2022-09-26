@@ -1,13 +1,19 @@
 package com.HunkyDoryCode.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "empresa")
 public class Empresa {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
+
+
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "direccion")
@@ -16,6 +22,13 @@ public class Empresa {
     private int telefono;
     @Column(name = "nit")
     private String nit;
+
+    //Agregar la relacion de muchos datos en un solo:
+
+    @OneToMany(mappedBy = "enterprises")
+    @JsonIgnoreProperties(value = "enterprises")
+    private Set<Empleado> empleados;
+
 
     @Transient
     Empleado empleado1;

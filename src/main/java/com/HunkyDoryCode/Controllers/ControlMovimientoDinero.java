@@ -13,6 +13,7 @@ public class ControlMovimientoDinero {
     ServiceMovimientoDinero mov1;
 
     public ControlMovimientoDinero(ServiceMovimientoDinero mov1){
+
         this.mov1 = mov1;
     }
 
