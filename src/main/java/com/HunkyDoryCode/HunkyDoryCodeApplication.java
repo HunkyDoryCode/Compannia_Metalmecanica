@@ -16,7 +16,6 @@ public class HunkyDoryCodeApplication {
 		Empresa ep1 = new Empresa("Mecanicas Garcia", "calle 1 # 1-10",
 				3113502, "900789879-8", emp1);
 
-		System.out.println(ep1.toString());
 	}
 
 }

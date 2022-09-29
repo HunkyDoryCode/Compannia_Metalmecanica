@@ -25,13 +25,7 @@ public class Empresa {
 
     //Agregar la relacion de muchos datos en un solo:
 
-    @OneToMany(mappedBy = "enterprises")
-    @JsonIgnoreProperties(value = "enterprises")
-    private Set<Empleado> empleados;
 
-
-    @Transient
-    Empleado empleado1;
 
     public Empresa() {
     }
@@ -41,7 +35,6 @@ public class Empresa {
         this.direccion = direccion;
         this.telefono = telefono;
         this.nit = nit;
-        this.empleado1 = empleado1;
     }
 
     public String getNombre() {
@@ -76,13 +69,9 @@ public class Empresa {
         this.nit = nit;
     }
 
-    public Empleado getEmpleado1() {
-        return empleado1;
-    }
 
-    public void setEmpleado1(Empleado empleado1) {
-        this.empleado1 = empleado1;
-    }
+
+
 
     @Override
     public String toString() {
@@ -91,7 +80,6 @@ public class Empresa {
                 ", direccion='" + direccion + '\'' +
                 ", telefono=" + telefono +
                 ", nit='" + nit + '\'' +
-                ", empleado1=" + this.empleado1 +
                 '}';
     }
 }

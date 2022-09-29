@@ -44,5 +44,4 @@ public class ControlMovimientoDinero {
         return this.mov1.eliminarMovimientoDinero(id);
     }
 
-
 }

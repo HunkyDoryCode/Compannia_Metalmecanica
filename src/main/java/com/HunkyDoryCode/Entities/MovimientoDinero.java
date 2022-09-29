@@ -1,5 +1,7 @@
 package com.HunkyDoryCode.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,14 @@ public class MovimientoDinero {
     private double montoMovimento;
     @Column(name = "conceptoMovimiento")
     private String conceptoMovimiento;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", nullable = false)
+
+    //Instruccion para evitar el bucle en movimientodinero
+    @JsonIgnoreProperties(value= "Empleado")
+
+    private Empleado Empleado;
 
     //Agregar la relacion de muchos datos en un solo:
     /*
