@@ -33,4 +33,8 @@ public class userService {
     return user;
 
     }
+
+    public Object getOrCreateUser(Map<String, Object> claims) {
+        return null;
+    }
 }

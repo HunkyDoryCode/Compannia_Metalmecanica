@@ -36,6 +36,7 @@ public class ControlFront {
 
     @GetMapping("/") //ruta raíz
     public String index(Model model, @AuthenticationPrincipal OidcUser principal){
+        Object user = null;
         if(principal != null)
             user = this. userService.getOrCreateUser(principal.getClaims());
             model.addAttribute("user", user);
