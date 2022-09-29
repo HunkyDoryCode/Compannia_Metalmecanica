@@ -35,7 +35,6 @@ public class ServiceEmpleado {
             empleadoActuali.setCorreo(emple.getCorreo());
             empleadoActuali.setNombre(emple.getNombre());
             empleadoActuali.setRolEmpleado(emple.getRolEmpleado());
-            empleadoActuali.setEmpresaEmpleadoPertenece(emple.getEmpresaEmpleadoPertenece());
             return this.repositorioE.save(empleadoActuali);
 
     }

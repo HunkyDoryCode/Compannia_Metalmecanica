@@ -29,7 +29,8 @@ public class ControlEmpresa {
      */
 
     //POST -> Crea
-    //Crea el modelo de la ruta del Frontcontrolador:
+
+    //Relacion del modelador del ControllFront de enterprises.html
     @PostMapping("/enterprises")
     public RedirectView crearEmpresa(@ModelAttribute Empresa emp, Model modelEmpr){
         modelEmpr.addAttribute(emp);
@@ -41,15 +42,18 @@ public class ControlEmpresa {
 
     //PATCH:
     @PutMapping("/enterprises/{id}")
-    public Empresa actualizardatoEmpresa(@PathVariable(value = "id")Long id, @RequestBody Empresa Emp){
-        return this.se1.actualizarEmpresa(id, Emp);
+    public RedirectView actualizardatoEmpresa(@PathVariable(value = "id")Long id, @RequestBody Empresa Emp){
+        this.se1.actualizarEmpresa(id, Emp);
+        return  new RedirectView("/enterprises");
+
     }
 
     //DELETE:
 
-    @DeleteMapping("/enterprises/{id}")
-    public Empresa eliminardatoEmpresa(@PathVariable(value = "id")Long id){
-        return this.se1.eliminEmpresa(id);
+    @DeleteMapping("/enterprisesE/{id}")
+    public RedirectView eliminardatoEmpresa(@PathVariable Long id) {
+        this.se1.eliminEmpresa(id);
+        return  new RedirectView("/enterprises");
     }
 
 

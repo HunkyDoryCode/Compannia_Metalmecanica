@@ -10,7 +10,7 @@
 
 </head>
 <body>
-muestre la informacion de Empresas en formas de tarjetas "Cards"
+<!--muestre la informacion de los "Empleados" en formas de tarjetas "Cards"-->
 
 <main>
 
@@ -24,22 +24,23 @@ muestre la informacion de Empresas en formas de tarjetas "Cards"
         </div>
     </nav>
 
-        <div class="px-4 py-5 my-2 text-center">
-        <h1 class="display-5 fw-bold mb-4">Empresas</h1>
+    <!--El codigo traido de las tarjetas "Card" Boostrap-->
+    <!--Primera Tarjeta-->
+    <div class="px-4 py-5 my-2 text-center">
+        <h1 class="display-5 fw-bold mb-4">Empleados</h1>
         <div class="d-flex justify-content-center gap-3">
-            <div th:each="enterprises:${enterprises}" class="card" style="width: 18rem;">
-                <img src="imagenes/Empresahunkydorycode.jpeg" class="d-block mx-auto my-auto mb-4" alt="User" height="100">
+            <div th:each="user:${user}" class="card" style="width: 18rem;">
+                <img src="imagenes/Empleadoshunkydorycode.jpeg" class="d-block mx-auto my-auto mb-4" height="100">
                 <div class="card-body">
                     <!--Titulo y descripcion de las cards-->
-                    <h5 th:text="${enterprises.nombre}"  class="card-title"></h5>
-                    <p  th:text="${enterprises.direccion}"  class="card-text"></p>
-                    <p  th:text="${enterprises.telefono}"  class="card-text"></p>
-                    <p  th:text="${enterprises.nit}"  class="card-text"></p>
+                    <h5 th:text="${user.nombre}"  class="card-title"></h5>
+                    <p  th:text="${user.correo}"  class="card-text"></p>
+                    <p  th:text="${user.enterprises.nombre }"  class="card-text"></p>
+                    <p  th:text="${user.rolEmpleado}"  class="card-text"></p>
 
+                    <!--Boton detalles-->
                     <a href="#" class="btn btn-primary">Detalles</a>
-                    <!-- <form th:action="@{/enterprisesE/{id}(id=${enterprises.nit})}" th:method="delete">
-                        <button type="submit" class="btn btn-danger fw-bold">Eliminar</button>
-                    </form> -->
+
 
 
                 </div>
@@ -49,17 +50,19 @@ muestre la informacion de Empresas en formas de tarjetas "Cards"
 
 
     </div>
+    <!--Boton para que nos permita devolvernos a la pagina principal:-->
 
     <div class="px-4 py-5 my-5 text-center">
-
-        <a href="/enterprises/nueva-empresa" type="button" class="btn btn-primary btn-lg px-5 gap-3">Registrar Empresa del empleado</a>
-           <a href="/index/prueba" type="button" class="btn btn-outline-secundary btn-lg px-5 gap-3">Devolverse al inicio del aplicativo</a>
+        <!--Boton para que nos permita ingresar para diligenciar el formulario:-->
+        <a href="/user/nuevos-empleados" type="button" class="btn btn-primary btn-lg px-5 gap-3">Registrar Empleado</a>
+        <!--Boton para que nos permita devolvernos a la pagina principal:-->
+        <a href="/index/prueba" type="button" class="btn btn-outline-secundary btn-lg px-5 gap-3">Devolverse al inicio del aplicativo</a>
     </div>
-
 
     </div>
 
 </main>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 

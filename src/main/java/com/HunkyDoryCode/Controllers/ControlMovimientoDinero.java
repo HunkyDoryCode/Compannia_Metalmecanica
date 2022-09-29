@@ -4,7 +4,9 @@ import com.HunkyDoryCode.Entities.Empleado;
 import com.HunkyDoryCode.Entities.MovimientoDinero;
 import com.HunkyDoryCode.Services.ServiceEmpleado;
 import com.HunkyDoryCode.Services.ServiceMovimientoDinero;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class ControlMovimientoDinero {
 
 
     //GET:
+    /*
     @GetMapping("/movements")
     public List<MovimientoDinero> informacion(){
         return this.mov1.getInformacion();
@@ -30,6 +33,16 @@ public class ControlMovimientoDinero {
     @PostMapping("/movements")
     public MovimientoDinero crearEmpleado(@RequestBody MovimientoDinero MovDin){
         return this.mov1.crearMovimientoDinero(MovDin);
+    }
+     */
+
+    //Relacion del modelador del ControllFront de la pagina Movimiento.html
+    //Post:
+    @PostMapping("/movimiento")
+    public RedirectView crearMovimientos(@ModelAttribute MovimientoDinero MovDin, Model modelU){
+        modelU.addAttribute(MovDin);
+        this.mov1.crearMovimientoDinero(MovDin);
+        return new RedirectView("/movimiento");
     }
 
     //PATCH:

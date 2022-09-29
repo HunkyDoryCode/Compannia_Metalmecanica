@@ -3,92 +3,98 @@ package com.HunkyDoryCode.Entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "empleado")
 public class Empleado {
+    //Columnas de los Atributos, de la clase Empleado:
+    //Identificador de Cedula del usuario:
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
+    private Long cedulaUsuario;
+
     @Column(name ="nombre")
     private String nombre;
     @Column(name ="correo")
     private String correo;
+    /*
     @Column(name ="empresaEmpleadoPertenece")
     private String empresaEmpleadoPertenece;
+     */
     @Column(name ="rolEmpleado")
     private String rolEmpleado;
 
+    /*
     @Transient
     MovimientoDinero movimiento1;
-
-    //Agregar la relacion de muchos datos en un solo:
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "registroMovimiento", nullable = false)
-    @JsonIgnoreProperties(value = "empleados")
-    private Empleado enterprises;
+     */
 
 
+    //Agregar de muchas datos a uno, del Id Nit, de la relacion tabla Empresa:
+    @ManyToOne(optional = false)
+    //Union de de columna "nit"
+    @JoinColumn(name = "nit",nullable = false) //debe relacionarlo con un empleado
+    private Empresa enterprises;
+
+
+    //Agregar de uno a muchos datos, con la relacion de tabla movimiento dinero:
+    //maping de flecha direccionamiento "Empleado":
+    @OneToMany(mappedBy = "empleado")
+    private Set<MovimientoDinero> montoMovimiento;
+
+
+
+    //constructor Abstracto:
     public Empleado() {
     }
 
-    public Empleado(String nombre, String correo, String empresaEmpleadoPertenece, String rolEmpleado, MovimientoDinero movimientoDinero1) {
-        this.nombre = nombre;
-        this.correo = correo;
-        this.empresaEmpleadoPertenece = empresaEmpleadoPertenece;
-        this.rolEmpleado = rolEmpleado;
-        this.movimiento1 = movimientoDinero1;
+
+
+
+    //Metodos Getters y Setters de los atributos Empleado:
+
+    public Long getCedulaUsuario() {
+        return cedulaUsuario;
     }
 
+    public void setCedulaUsuario(Long cedulaUsuario) {
+        this.cedulaUsuario = cedulaUsuario;
+    }
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public String getCorreo() {
         return correo;
     }
-
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-
-    public String getEmpresaEmpleadoPertenece() {
-        return empresaEmpleadoPertenece;
-    }
-
-    public void setEmpresaEmpleadoPertenece(String empresaEmpleadoPertenece) {
-        this.empresaEmpleadoPertenece = empresaEmpleadoPertenece;
-    }
-
     public String getRolEmpleado() {
         return rolEmpleado;
     }
-
     public void setRolEmpleado(String rolEmpleado) {
         this.rolEmpleado = rolEmpleado;
     }
 
-    public MovimientoDinero getMovimientoDinero1() {
-        return movimiento1;
+
+    //Metodos getter y setters de la relacion MovimientoDinero:
+    public Set<MovimientoDinero> getMontoMovimiento() {
+        return montoMovimiento;
+    }
+    public void setMontoMovimiento(Set<MovimientoDinero> montoMovimiento) {
+        this.montoMovimiento = montoMovimiento;
     }
 
-    public void setMovimientoDinero1(MovimientoDinero movimientoDinero1) {
-        this.movimiento1 = movimientoDinero1;
-    }
 
-    @Override
-    public String toString() {
-        return "Empleado{" +
-                "nombre='" + nombre + '\'' +
-                ", correo='" + correo + '\'' +
-                ", empresaEmpleadoPertenece='" + empresaEmpleadoPertenece + '\'' +
-                ", rolEmpleado='" + rolEmpleado + '\'' +
-                ", movimiento1=" + this.movimiento1 +
-                '}';
+
+    //Metodos getter y setters de la relacion Empresa:
+    public Empresa getEnterprises() {
+        return enterprises;
+    }
+    public void setEnterprises(Empresa enterprises) {
+        this.enterprises = enterprises;
     }
 }

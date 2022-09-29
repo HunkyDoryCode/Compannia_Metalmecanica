@@ -39,6 +39,7 @@ public class ControlEmpleado {
 
 
     //POST:
+    //Relacion del modelador del ControllFront de la pagina usuer.html:
     @PostMapping("/user")
     public RedirectView crearEmpleado(@ModelAttribute Empleado emplea, Model modelEmpl){
         modelEmpl.addAttribute(emplea);
@@ -52,10 +53,13 @@ public class ControlEmpleado {
 
 
     //PATCH:
+
     @PutMapping("/user/{id}")
     public Empleado actualizarEmpresa(@PathVariable Long id, @RequestBody Empleado emplea){
         return this.sem1.actualizarEmpleado(id, emplea);
     }
+
+
 
     //Delete
     @DeleteMapping("/user/{id}")
